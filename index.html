@@ -10,7 +10,9 @@
     src: url('https://cdn.jsdelivr.net/gh/rastikerdar/yekan-font/fonts/Yekan-Regular.ttf') format('truetype');
 }
 
-/* اگر فایل فونت Peyda را دارید، می‌توانم @font-face برای آن اضافه کنم. فعلاً نام فونت را مشخص کرده‌ام تا در صورت قرارگ...] */
+:root{
+  --brand-purple: #7B1FA2; /* رنگ بنفش جدید که روی لوگو هم اعمال خواهد شد */
+}
 
 body{
     font-family: yekan, tahoma;
@@ -20,7 +22,7 @@ body{
 }
 
 .box{
-    background:#6a1b9a; /* بنفش */
+    background:var(--brand-purple); /* بنفش برند */
     color:#ffffff; /* نوشته‌ها سفید */
     width:600px;
     margin:auto;
@@ -50,13 +52,34 @@ body{
     border: 6px solid rgba(255,255,255,0.9); /* حاشیه سفید پهن در اطراف دایره */
 }
 
+/* استفاده از فیلتر CSS برای رنگ‌دهی لوگوی رنگی به یک رنگ یکنواخت بنفش.
+   توجه: این روش بهترین نتیجه را با لوگوی سفید/سیاه یا با نواحی شفاف دارد.
+   اگر لوگوی شما چند رنگ است ممکن است نتیجه قابل قبول نباشد. */
 .logo-circle img{
     width: 110%; /* کمی بزرگ‌تر تا حاشیه داخلی سفید کاملا پوشانده شود */
     height: 110%;
     object-fit: cover;       /* تصویر تمام فضای دایره را پر می‌کند */
     object-position: center; /* تصویر در مرکز قرار می‌گیرد */
     display: block;
+    filter: grayscale(1) brightness(0) sepia(1) saturate(1000%) hue-rotate(260deg) brightness(1);
+    /* توضیح فیلتر: ابتدا خاکستری می‌کند، سپس تاریک می‌کند تا تنها رنگ دلخواه با sepia/hue-rotate قابل دستیابی باشد.
+       ممکن است نیاز به تنظیم hue-rotate و saturate/brightness داشته باشد تا دقیقاً به #7B1FA2 برسد. */
 }
+
+/* اگر بخواهید از روش background-image و blend استفاده کنیم (گزینهٔ جایگزین):
+.logo-circle{
+  background-image: url('logo.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.logo-circle::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--brand-purple);
+  mix-blend-mode: multiply; /* یا color، یا screen بسته به نتیجه‌ای که می‌خواهید */
+}
+*/
 
 .box a{
     color:#ffffff;
