@@ -10,7 +10,7 @@
     src: url('https://cdn.jsdelivr.net/gh/rastikerdar/yekan-font/fonts/Yekan-Regular.ttf') format('truetype');
 }
 
-/* اگر فایل فونت Peyda را دارید، می‌توانم @font-face برای آن اضافه کنم. فعلاً نام فونت را مشخص کرده‌ام تا در صورت قرارگ[...] */
+/* اگر فایل فونت Peyda را دارید، می‌توانم @font-face برای آن اضافه کنم. فعلاً نام فونت را مشخص کرده‌ام تا در صورت قرار گ...] */
 
 body{
     font-family: yekan, tahoma;
@@ -46,12 +46,15 @@ body{
     align-items: center;
     justify-content: center;
     box-shadow: 0 5px 15px rgba(0,0,0,.2);
+    overflow: hidden; /* مهم: محتوا را داخل دایره برش می‌دهد */
 }
 
 .logo-circle img{
-    width: 90%;
-    height: 90%;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* تصویر تمام فضای دایره را پر می‌کند و احتمالا برش داده می‌شود */
+    display: block;
+    /* اگر خواستید تصویر داخل دایره کمی فضای سفید داشته باشد، می‌توانید width/height را به 90% برگردانید و object-fit: contain کنید */
 }
 
 .box a{
