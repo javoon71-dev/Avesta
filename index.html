@@ -11,7 +11,7 @@
 }
 
 :root{
-  --brand-purple: #7B1FA2; /* رنگ بنفش جدید که روی لوگو هم اعمال خواهد شد */
+  --brand-purple: #7B1FA2; /* رنگ بنفش جدید */
 }
 
 body{
@@ -52,14 +52,14 @@ body{
     border: none; /* استروک/حاشیه حذف شد */
 }
 
-/* برگردوندن حالت نمایش تصویر به قبل: لوگو کامل داخل دایره قرار گیرد (contain) و فیلتر حذف شود */
+/* تنظیم تصویر تا تمام دایره را بپوشاند */
 .logo-circle img{
-    width: 90%;
-    height: 90%;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* تصویر تمام فضای دایره را می‌پوشاند و برش می‌خورد */
     object-position: center;
     display: block;
-    filter: none; /* فیلتر حذف شد */
+    filter: none;
 }
 
 .box a{
