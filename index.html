@@ -10,6 +10,8 @@
     src: url('https://cdn.jsdelivr.net/gh/rastikerdar/yekan-font/fonts/Yekan-Regular.ttf') format('truetype');
 }
 
+/* اگر فایل فونت Peyda را دارید، می‌توانم @font-face برای آن اضافه کنم. فعلاً نام فونت را مشخص کرده‌ام تا در صورت قرارگیری فونت در سیستم یا اضافه شدن توسط شما، اعمال شود. */
+
 body{
     font-family: yekan, tahoma;
     background:#f5f5f5;
@@ -23,7 +25,7 @@ body{
     width:600px;
     margin:auto;
     padding:40px;
-    border-radius:24px; /* گردتر شده */
+    border-radius:40px; /* گردتر شده */
     box-shadow:0 5px 15px rgba(0,0,0,.15);
     font-weight:700; /* بولد */
     font-size:18px; /* یک سایز بزرگ‌تر (از 16px به 18px) */
@@ -33,6 +35,13 @@ body{
     color:#ffffff;
     text-decoration:underline;
 }
+
+.box .peyda{
+    font-family: peyda, yekan, tahoma; /* اگر فونت Peyda بارگذاری شد، استفاده می‌شود */
+    color:#ff9800; /* نارنجی */
+    font-weight:700; /* بولد */
+}
+
 </style>
 
 </head>
@@ -43,8 +52,7 @@ body{
 
 <h1>سلام 🌹</h1>
 
-<p>
- ممنون که مجموعه اوستا دیزاین رو انتخاب کردید</p>
+<p class="peyda">ممنون که مجموعه اوستا دیزاین رو انتخاب کردید</p>
 
 <p>
 لطفاً هنگام تحویل، این رسید را همراه داشته باشید.
