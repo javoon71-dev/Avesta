@@ -10,7 +10,7 @@
     src: url('https://cdn.jsdelivr.net/gh/rastikerdar/yekan-font/fonts/Yekan-Regular.ttf') format('truetype');
 }
 
-/* اگر فایل فونت Peyda را دارید، می‌توانم @font-face برای آن اضافه کنم. فعلاً نام فونت را مشخص کرده‌ام تا در صورت قرارگیری فونت در سیستم یا اضافه شدن توسط شما، اعمال شود. */
+/* اگر فایل فونت Peyda را دارید، می‌توانم @font-face برای آن اضافه کنم. فعلاً نام فونت را مشخص کرده‌ام تا در صورت قرارگ[...] */
 
 body{
     font-family: yekan, tahoma;
@@ -29,6 +29,29 @@ body{
     box-shadow:0 5px 15px rgba(0,0,0,.15);
     font-weight:700; /* بولد */
     font-size:18px; /* یک سایز بزرگ‌تر (از 16px به 18px) */
+    position: relative;
+    margin-top: 60px;
+}
+
+.logo-circle{
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,.2);
+}
+
+.logo-circle img{
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
 }
 
 .box a{
@@ -49,6 +72,10 @@ body{
 <body>
 
 <div class="box">
+
+<div class="logo-circle">
+    <img src="https://raw.githubusercontent.com/javoon71-dev/Avesta/main/logo.png" alt="Avesta Logo">
+</div>
 
 <h1>سلام 🌹</h1>
 
