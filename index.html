@@ -109,7 +109,115 @@ body{
 <p>
 اینستاگرام: <a href="https://instagram.com/Avesta_adv">@Avesta_adv</a>
 </p>
+<div class="w-1/2 sm:w-1/3 md:w-1/5 p-2 flex justify-center"><style>
+    .glow-card-_r_gs_ {
+      --base: 120;
+      --spread: 90;
+      --radius: 14;
+      
+      /* مقدار ضخامت مرز نئون به صورت پویا */
+      --border: 1.5; 
+      
+      --backdrop: rgba(0, 131, 113, 0.03); 
+      --backup-border: var(--backdrop);
+      --size: 200;
+      --outer: 1;
+      --border-size: calc(var(--border, 2) * 1px);
+      --spotlight-size: calc(var(--size, 150) * 1px);
+      --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0)));
+      
+      background-image: radial-gradient(
+        var(--spotlight-size) var(--spotlight-size) at
+        calc(var(--x, 0) * 1px)
+        calc(var(--y, 0) * 1px),
+        hsl(var(--hue, 210) calc(var(-- saturation, 100) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.12)), transparent
+      );
+      background-color: var(--backdrop, transparent);
+      background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
+      background-position: 50% 50%;
+      border: var(--border-size) solid var(--backup-border);
+      position: relative;
+      
+      /* اصلاح شد: تغییر از none به pan-y برای فعال‌سازی اسکرول طبیعی عمودی روی موبایل */
+      touch-action: pan-y;
+      
+      
+      
+    }
 
+    [data-glow] {
+      --bg-spot-opacity: 0;
+      --border-spot-opacity: 0;
+      --border-light-opacity: 0;
+    }
+    
+    [data-glow]:hover,
+    [data-glow]:focus-within {
+      --bg-spot-opacity: 0.12;
+      --border-spot-opacity: 1;
+      --border-light-opacity: 1;
+    }
+
+    [data-glow]::before,
+    [data-glow]::after {
+      pointer-events: none;
+      content: "";
+      position: absolute;
+      inset: calc(var(--border-size) * -1);
+      border: var(--border-size) solid transparent;
+      border-radius: calc(var(--radius) * 1px);
+      background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      
+      -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+      -webkit-mask-clip: padding-box, border-box;
+      -webkit-mask-composite: source-in;
+      
+      mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+      mask-clip: padding-box, border-box;
+      mask-composite: intersect;
+      
+      z-index: 10; 
+    }
+    
+    [data-glow]::before {
+      background-image: radial-gradient(
+        calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at
+        calc(var(--x, 0) * 1px)
+        calc(var(--y, 0) * 1px),
+        hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 50) * 1%) / var(--border-spot-opacity, 1)), transparent 100%
+      );
+      filter: brightness(2);
+    }
+    
+    [data-glow]::after {
+      background-image: radial-gradient(
+        calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at
+        calc(var(--x, 0) * 1px)
+        calc(var(--y, 0) * 1px),
+        hsl(0 100% 100% / var(--border-light-opacity, 1)), transparent 100%
+      );
+    }
+    
+    [data-glow] [data-glow] {
+      position: absolute;
+      inset: 0;
+      will-change: filter;
+      opacity: var(--outer, 1);
+      border-radius: calc(var(--radius) * 1px);
+      border-width: calc(var(--border-size) * 20);
+      filter: blur(calc(var(--border-size) * 10));
+      background: none;
+      pointer-events: none;
+      border: none;
+    }
+    
+    [data-glow] > [data-glow]::before {
+      inset: -10px;
+      border-width: 10px;
+    }
+  </style><div data-glow="true" class="rounded-2xl relative grid grid-rows-[1fr_auto] shadow-sm p-4 gap-4 backdrop-blur-xs glow-card-_r_gs_ w-full h-36.25 transition-all duration-300 hover:-translate-y-1 group" style="--x: 99.67; --xp: 0.45; --y: 1861.06; --yp: 12.83;"><div data-glow="true"></div><div class="flex flex-col items-center justify-center text-center w-full h-full space-y-2"><div class="h-12 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-truck w-11 h-11 text-[#008371] transition-transform duration-300 group-hover:scale-110" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg></div><h3 class="w-full font-black text-[14.5px] text-gray-900 leading-normal">ضمانت ارسال</h3><p class="text-gray-500 text-[12px] leading-tight font-semibold">تحویل به موقع و امن.</p></div></div></div>
 </div>
 
 </body>
