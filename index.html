@@ -2,223 +2,344 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<title>چاپ و تبلیغات اوستا</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>چاپ و تبلیغات اوستا | تابلو، لایت‌باکس، چنلیوم و چاپ</title>
+<meta name="description" content="چاپ و تبلیغات اوستا: ساخت تابلوی چنلیوم، لایت‌باکس، تابلوی استیل و انواع چاپ تبلیغاتی.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;900&display=swap" rel="stylesheet">
 <style>
-@font-face {
-    font-family: 'yekan';
-    src: url('https://cdn.jsdelivr.net/gh/rastikerdar/yekan-font/fonts/Yekan-Regular.ttf') format('truetype');
-}
+  :root {
+    --ink: #101426;
+    --wall: #171b31;
+    --seam: #232845;
+    --text: #e9eaf4;
+    --muted: #a9adc9;
+    --cyan: #00aeef;
+    --magenta: #ec008c;
+    --yellow: #ffe94a;
+    --glow: 1; /* 1 = sign lit, 0 = sign off */
+    --font: "Vazirmatn", Tahoma, "Segoe UI", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    background: var(--ink);
+    color: var(--text);
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; border-radius: 4px; }
 
-:root{
-  --brand-purple: #ff9800; /* رنگ نارنجی */
-}
+  .wrap { width: min(1080px, 100% - 40px); margin-inline: auto; }
 
-body{
-    font-family: yekan, tahoma;
-    background:#f5f5f5;
-    text-align:center;
-    padding-top:100px;
-}
+  /* ---------- header ---------- */
+  header.top { padding: 18px 0; position: relative; z-index: 2; }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { font-weight: 900; font-size: 1.15rem; text-decoration: none; }
+  nav { display: flex; gap: 22px; font-size: .95rem; }
+  nav a { text-decoration: none; color: var(--muted); padding: 4px 2px; }
+  nav a:hover { color: var(--text); }
+  @media (max-width: 560px) { nav a:nth-child(2) { display: none; } }
 
-.box{
-    background:#ff9800; /* نارنجی */
-    color:#ffffff; /* نوشته‌ها سفید */
-    width:600px;
-    margin:auto;
-    padding:40px;
-    border-radius:40px; /* گردتر شده */
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
-    font-weight:700; /* بولد */
-    font-size:18px; /* یک سایز بزرگ‌تر (از 16px به 18px) */
+  /* ---------- hero: the sign is the headline ---------- */
+  .hero {
     position: relative;
-    margin-top: 60px;
-}
-
-.logo-circle{
-    position: absolute;
-    top: -60px; /* حالت قبل */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px; /* اندازهٔ قبلی */
-    height: 120px;
-    background: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,.2);
-    overflow: hidden; /* برای اطمینان از ماسک دایره */
-    border: none; /* استروک/حاشیه حذف شد */
-}
-
-/* تنظیم تصویر تا تمام دایره را بپوشاند */
-.logo-circle img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;   /* تصویر تمام فضای دایره را می‌پوشاند و برش می‌خورد */
-    object-position: center;
+    padding: 36px 0 72px;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 42%, rgba(236,0,140,calc(.22 * var(--glow))), transparent 70%),
+      radial-gradient(ellipse 50% 40% at 50% 60%, rgba(0,174,239,calc(.12 * var(--glow))), transparent 70%),
+      repeating-linear-gradient(90deg, transparent 0 159px, var(--seam) 159px 160px),
+      repeating-linear-gradient(0deg, transparent 0 119px, var(--seam) 119px 120px),
+      var(--wall);
+    transition: --glow .4s;
+  }
+  .sign-stage { text-align: center; padding: 40px 0 8px; }
+  h1 { font-size: 0; } /* visually the sign; readable by screen readers */
+  .sign {
+    display: inline-block;
+    font-weight: 900;
+    font-size: clamp(6rem, 24vw, 15rem);
+    line-height: 1.1;
+    color: #3b4066;
+    letter-spacing: 0;
+    user-select: none;
+    transition: color .15s, text-shadow .15s;
+  }
+  .tube {
     display: block;
-    filter: none;
-}
+    font-weight: 600;
+    font-size: clamp(1.15rem, 4vw, 2rem);
+    margin-top: 6px;
+    color: #2e3a52;
+    transition: color .15s, text-shadow .15s;
+  }
+  .lit .sign {
+    color: #fff3fa;
+    text-shadow:
+      0 0 4px #ffd1ec,
+      0 0 14px var(--magenta),
+      0 0 38px var(--magenta),
+      0 0 80px rgba(236,0,140,.75);
+  }
+  .lit .tube {
+    color: #e8fbff;
+    text-shadow: 0 0 4px #bff0ff, 0 0 14px var(--cyan), 0 0 34px rgba(0,174,239,.8);
+  }
+  .lit .sign-wrap { animation: switchon 1.5s steps(1, end) 1; }
+  @keyframes switchon {
+    0%   { opacity: .15; }
+    12%  { opacity: 1; }
+    18%  { opacity: .2; }
+    30%  { opacity: 1; }
+    36%  { opacity: .35; }
+    55%  { opacity: 1; }
+    100% { opacity: 1; }
+  }
 
-.box a{
-    color:#ffffff;
-    text-decoration:underline;
-}
+  .hero-copy { text-align: center; max-width: 560px; margin: 28px auto 0; }
+  .hero-copy p { color: var(--muted); font-size: 1.1rem; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 26px; }
+  .btn {
+    font: inherit; font-weight: 600; cursor: pointer;
+    padding: 12px 24px; border-radius: 10px; text-decoration: none; display: inline-block;
+    border: 2px solid transparent; min-height: 48px;
+  }
+  .btn.primary { background: var(--yellow); color: #14120a; }
+  .btn.primary:hover { background: #fff27d; }
+  .btn.ghost { background: transparent; color: var(--text); border-color: #4a5080; }
+  .btn.ghost:hover { border-color: var(--text); }
 
-.box .peyda{
-    font-family: peyda, yekan, tahoma; /* اگر فونت Peyda بارگذاری شد، استفاده می‌شود */
-    color:#ff9800; /* نارنجی */
-    font-weight:700; /* بولد */
-}
+  .switch {
+    position: absolute; top: 8px; left: 0;
+    font: inherit; font-size: .9rem; cursor: pointer;
+    color: var(--text); background: rgba(16,20,38,.7);
+    border: 1px solid #4a5080; border-radius: 999px; padding: 8px 16px; min-height: 44px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .switch .dot { width: 12px; height: 12px; border-radius: 50%; background: #4a5080; transition: background .2s, box-shadow .2s; }
+  .switch[aria-pressed="true"] .dot { background: var(--magenta); box-shadow: 0 0 10px var(--magenta); }
+  .hero .wrap { position: relative; }
 
+  /* ---------- sections ---------- */
+  section { padding: 84px 0; }
+  h2 { font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 900; line-height: 1.5; margin-bottom: 12px; }
+  .lead { color: var(--muted); max-width: 54ch; margin-bottom: 44px; }
+
+  /* services: rows, each with a drawing of its own material */
+  .services { list-style: none; border-top: 1px solid var(--seam); }
+  .services li {
+    display: grid; grid-template-columns: 150px 1fr; gap: 28px; align-items: center;
+    padding: 28px 0; border-bottom: 1px solid var(--seam);
+  }
+  .services h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 2px; }
+  .services p { color: var(--muted); max-width: 52ch; }
+  .swatch { height: 96px; border-radius: 8px; position: relative; overflow: hidden; }
+
+  /* print: CMYK registration dots */
+  .sw-print { background: #f3f1ec; display: flex; align-items: center; justify-content: center; gap: 0; }
+  .sw-print i { width: 38px; height: 38px; border-radius: 50%; mix-blend-mode: multiply; display: block; }
+  .sw-print i:nth-child(1) { background: var(--cyan); }
+  .sw-print i:nth-child(2) { background: var(--magenta); margin-inline: -12px; }
+  .sw-print i:nth-child(3) { background: var(--yellow); }
+  /* light box: evenly lit panel */
+  .sw-box { background: linear-gradient(180deg, #fff 0%, #cfeeff 100%); border: 6px solid #3a3f5c; box-shadow: 0 0 28px rgba(0,174,239,.5); }
+  .sw-box::after { content: "اوستا"; position: absolute; inset: 0; display: grid; place-items: center; font-weight: 900; font-size: 1.8rem; color: #0a4a6b; }
+  /* channel letters: raised with depth */
+  .sw-channel { background: var(--wall); display: grid; place-items: center; }
+  .sw-channel span { font-weight: 900; font-size: 3rem; color: #fff3fa;
+    text-shadow: 1px 1px 0 #b7b9cf, 2px 2px 0 #9ea1bd, 3px 3px 0 #7e82a3, 4px 4px 0 #5f6388, 5px 5px 10px rgba(0,0,0,.6); }
+  /* steel: brushed metal */
+  .sw-steel { background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.07) 0 1px, transparent 1px 3px),
+    linear-gradient(100deg, #8d93a8 0%, #e6e9f2 30%, #9097ad 55%, #dfe2ec 80%, #8a90a6 100%);
+    display: grid; place-items: center; }
+  .sw-steel span { font-weight: 900; font-size: 2.6rem; color: #3b3f55; text-shadow: 0 1px 0 rgba(255,255,255,.7); }
+
+  @media (max-width: 640px) {
+    .services li { grid-template-columns: 1fr; gap: 14px; }
+    .swatch { height: 84px; }
+  }
+
+  /* process: a real sequence */
+  .process { background: #0c1020; }
+  .steps { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: s; }
+  .steps li { padding: 0 20px 0 0; position: relative; counter-increment: s; border-right: 2px solid var(--magenta); padding-right: 18px; }
+  .steps li::before { content: counter(s, persian); display: block; font-weight: 900; font-size: 2.2rem; color: var(--magenta); line-height: 1.2; margin-bottom: 6px; }
+  .steps h3 { font-size: 1.1rem; font-weight: 600; }
+  .steps p { color: var(--muted); font-size: .95rem; }
+  @media (max-width: 760px) {
+    .steps { grid-template-columns: 1fr 1fr; row-gap: 32px; }
+  }
+  @media (max-width: 440px) { .steps { grid-template-columns: 1fr; } }
+
+  /* location */
+  .location .map { border: 1px solid var(--seam); border-radius: 14px; overflow: hidden; background: var(--wall); }
+  .location iframe { display: block; width: 100%; height: 380px; border: 0; }
+  .location .map-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+  @media (max-width: 560px) { .location iframe { height: 300px; } }
+
+  /* contact */
+  .contact .box { background: var(--wall); border: 1px solid var(--seam); border-radius: 14px; padding: 40px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; }
+  .contact h2 { margin-bottom: 4px; }
+  .contact p { color: var(--muted); }
+  footer { padding: 28px 0 40px; color: var(--muted); font-size: .9rem; border-top: 1px solid var(--seam); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .lit .sign-wrap { animation: none; }
+    .sign, .tube { transition: none; }
+  }
 </style>
-
 </head>
-
 <body>
 
-<div class="box">
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">چاپ و تبلیغات اوستا</a>
+    <nav aria-label="منوی اصلی">
+      <a href="#services">خدمات</a>
+      <a href="#process">مراحل کار</a>
+      <a href="#location">آدرس</a>
+      <a href="#contact">تماس</a>
+    </nav>
+  </div>
+</header>
 
-<div class="logo-circle">
-    <img src="logo.jpg" alt="Avesta Logo">
-</div>
+<main>
+  <div class="hero lit" id="hero">
+    <div class="wrap">
+      <button class="switch" id="switch" type="button" aria-pressed="true">
+        <span class="dot" aria-hidden="true"></span>
+        <span id="switch-label">خاموش کردن تابلو</span>
+      </button>
 
-<h1>سلام 🌹</h1>
+      <div class="sign-stage">
+        <h1>چاپ و تبلیغات اوستا</h1>
+        <div class="sign-wrap" aria-hidden="true">
+          <span class="sign">اوستا</span>
+          <span class="tube">چاپ و تبلیغات</span>
+        </div>
+      </div>
 
-<p class="peyda">ممنون که مجموعه اوستا دیزاین رو انتخاب کردید</p>
+      <div class="hero-copy">
+        <p>تابلو، لایت‌باکس، چنلیوم و چاپ تبلیغاتی. از طرح اولیه تا نصب روی سردر، همه‌چیز در یک کارگاه ساخته می‌شود.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://instagram.com/avesta_adv" target="_blank" rel="noopener">گفتگو در اینستاگرام</a>
+          <a class="btn ghost" href="#services">دیدن خدمات</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
+  <section id="services">
+    <div class="wrap">
+      <h2>چه چیزی می‌سازیم</h2>
+      <p class="lead">هر کار با متریال و روشی انتخاب می‌شود که برای محل نصب و بودجه شما مناسب‌تر است.</p>
 
-لطفاً هنگام تحویل، این رسید را همراه داشته باشید.
-</p>
-    <p> 
+      <ul class="services">
+        <li>
+          <div class="swatch sw-print" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div>
+            <h3>چاپ</h3>
+            <p>بنر، استیکر، فلکس و چاپ‌های تبلیغاتی با رنگ دقیق و برش تمیز.</p>
+          </div>
+        </li>
+        <li>
+          <div class="swatch sw-box" aria-hidden="true"></div>
+          <div>
+            <h3>لایت‌باکس</h3>
+            <p>جعبه نورانی با روشنایی یکنواخت و بدنه مقاوم، مناسب سردر و داخل فروشگاه.</p>
+          </div>
+        </li>
+        <li>
+          <div class="swatch sw-channel" aria-hidden="true"><span>اوستا</span></div>
+          <div>
+            <h3>چنلیوم</h3>
+            <p>حروف برجسته نورانی یا بدون نور، با برش دقیق و نصب اصولی روی دیوار.</p>
+          </div>
+        </li>
+        <li>
+          <div class="swatch sw-steel" aria-hidden="true"><span>اوستا</span></div>
+          <div>
+            <h3>تابلوی استیل</h3>
+            <p>حروف و تابلوهای استیل با پرداخت براق یا مات که در برابر هوا و رطوبت دوام دارند.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-    . پس از تأیید نهایی سفارش، مسئولیت اشتباهات تایپی یا اطلاعات تأییدشده بر عهده مشتری است.
-    </P>
-هزینه تغییرات یا سفارش‌های جدید پس از تأیید، جداگانه محاسبه خواهد شد.
-  <p>مواردی که شامل گارانتی می باشد
--وجود لکه روی سفارشات
--حباب سلفون
-اختلاف رنگ بیشتر از 15%
-چند رنگ شدن محصول چاپ شده در یک بسته
-کسری تعداد بیشتر از 7%
-برش بیشتر از اندازه ذکر شده در راهنما برای هر محصول</p>
+  <section class="process" id="process">
+    <div class="wrap">
+      <h2>مراحل کار</h2>
+      <p class="lead">از اولین پیام تا روشن شدن تابلو چهار قدم فاصله است.</p>
+      <ol class="steps">
+        <li><h3>مشاوره و اندازه‌گیری</h3><p>محل نصب و نیاز شما را بررسی می‌کنیم.</p></li>
+        <li><h3>طراحی و تأیید</h3><p>طرح را می‌بینید و قبل از ساخت تأیید می‌کنید.</p></li>
+        <li><h3>ساخت</h3><p>برش، ساخت و مونتاژ در کارگاه انجام می‌شود.</p></li>
+        <li><h3>نصب</h3><p>تابلو در محل نصب و تست می‌شود.</p></li>
+      </ol>
+    </div>
+  </section>
 
-<p>
-اینستاگرام: <a href="https://instagram.com/Avesta_adv">@Avesta_adv</a>
-</p>
-<div class="w-1/2 sm:w-1/3 md:w-1/5 p-2 flex justify-center"><style>
-    .glow-card-_r_gs_ {
-      --base: 120;
-      --spread: 90;
-      --radius: 14;
-      
-      /* مقدار ضخامت مرز نئون به صورت پویا */
-      --border: 1.5; 
-      
-      --backdrop: rgba(0, 131, 113, 0.03); 
-      --backup-border: var(--backdrop);
-      --size: 200;
-      --outer: 1;
-      --border-size: calc(var(--border, 2) * 1px);
-      --spotlight-size: calc(var(--size, 150) * 1px);
-      --hue: calc(var(--base) + (var(--xp, 0) * var(--spread, 0)));
-      
-      background-image: radial-gradient(
-        var(--spotlight-size) var(--spotlight-size) at
-        calc(var(--x, 0) * 1px)
-        calc(var(--y, 0) * 1px),
-        hsl(var(--hue, 210) calc(var(-- saturation, 100) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.12)), transparent
-      );
-      background-color: var(--backdrop, transparent);
-      background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
-      background-position: 50% 50%;
-      border: var(--border-size) solid var(--backup-border);
-      position: relative;
-      
-      /* اصلاح شد: تغییر از none به pan-y برای فعال‌سازی اسکرول طبیعی عمودی روی موبایل */
-      touch-action: pan-y;
-      
-      
-      
+  <section class="location" id="location">
+    <div class="wrap">
+      <h2>کارگاه ما</h2>
+      <p class="lead">برای دیدن نمونه متریال‌ها یا هماهنگی حضوری، روی نقشه مسیر را ببینید.</p>
+      <div class="map">
+        <iframe
+          title="موقعیت چاپ و تبلیغات اوستا روی نقشه"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=31.3161859,48.6857240&amp;z=17&amp;hl=fa&amp;output=embed"></iframe>
+      </div>
+      <div class="map-actions">
+        <a class="btn primary" href="https://www.google.com/maps?q=31.3161859,48.6857240" target="_blank" rel="noopener">مسیریابی در گوگل مپ</a>
+        <a class="btn ghost" href="geo:31.3161859,48.6857240?q=31.3161859,48.6857240(چاپ و تبلیغات اوستا)">باز کردن در برنامه نقشه گوشی</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="box">
+        <div>
+          <h2>برای تابلوی بعدی‌تان پیام بدهید</h2>
+          <p>عکس محل نصب و ابعاد تقریبی را بفرستید تا راهنمایی‌تان کنیم.</p>
+        </div>
+        <a class="btn primary" href="https://instagram.com/avesta_adv" target="_blank" rel="noopener">@avesta_adv</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>چاپ و تبلیغات اوستا</span>
+    <a href="https://instagram.com/avesta_adv" target="_blank" rel="noopener">اینستاگرام: avesta_adv</a>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var hero = document.getElementById('hero');
+    var btn = document.getElementById('switch');
+    var label = document.getElementById('switch-label');
+    function set(on) {
+      hero.classList.toggle('lit', on);
+      hero.style.setProperty('--glow', on ? '1' : '0');
+      btn.setAttribute('aria-pressed', String(on));
+      label.textContent = on ? 'خاموش کردن تابلو' : 'روشن کردن تابلو';
     }
-
-    [data-glow] {
-      --bg-spot-opacity: 0;
-      --border-spot-opacity: 0;
-      --border-light-opacity: 0;
-    }
-    
-    [data-glow]:hover,
-    [data-glow]:focus-within {
-      --bg-spot-opacity: 0.12;
-      --border-spot-opacity: 1;
-      --border-light-opacity: 1;
-    }
-
-    [data-glow]::before,
-    [data-glow]::after {
-      pointer-events: none;
-      content: "";
-      position: absolute;
-      inset: calc(var(--border-size) * -1);
-      border: var(--border-size) solid transparent;
-      border-radius: calc(var(--radius) * 1px);
-      background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-      
-      -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
-      -webkit-mask-clip: padding-box, border-box;
-      -webkit-mask-composite: source-in;
-      
-      mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
-      mask-clip: padding-box, border-box;
-      mask-composite: intersect;
-      
-      z-index: 10; 
-    }
-    
-    [data-glow]::before {
-      background-image: radial-gradient(
-        calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at
-        calc(var(--x, 0) * 1px)
-        calc(var(--y, 0) * 1px),
-        hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 50) * 1%) / var(--border-spot-opacity, 1)), transparent 100%
-      );
-      filter: brightness(2);
-    }
-    
-    [data-glow]::after {
-      background-image: radial-gradient(
-        calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at
-        calc(var(--x, 0) * 1px)
-        calc(var(--y, 0) * 1px),
-        hsl(0 100% 100% / var(--border-light-opacity, 1)), transparent 100%
-      );
-    }
-    
-    [data-glow] [data-glow] {
-      position: absolute;
-      inset: 0;
-      will-change: filter;
-      opacity: var(--outer, 1);
-      border-radius: calc(var(--radius) * 1px);
-      border-width: calc(var(--border-size) * 20);
-      filter: blur(calc(var(--border-size) * 10));
-      background: none;
-      pointer-events: none;
-      border: none;
-    }
-    
-    [data-glow] > [data-glow]::before {
-      inset: -10px;
-      border-width: 10px;
-    }
-  </style><div data-glow="true" class="rounded-2xl relative grid grid-rows-[1fr_auto] shadow-sm p-4 gap-4 backdrop-blur-xs glow-card-_r_gs_ w-full h-36.25 transition-all duration-300 hover:-translate-y-1 group" style="--x: 99.67; --xp: 0.45; --y: 1861.06; --yp: 12.83;"><div data-glow="true"></div><div class="flex flex-col items-center justify-center text-center w-full h-full space-y-2"><div class="h-12 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-truck w-11 h-11 text-[#008371] transition-transform duration-300 group-hover:scale-110" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><circle cx="17" cy="18" r="2"></circle><circle cx="7" cy="18" r="2"></circle></svg></div><h3 class="w-full font-black text-[14.5px] text-gray-900 leading-normal">ضمانت ارسال</h3><p class="text-gray-500 text-[12px] leading-tight font-semibold">تحویل به موقع و امن.</p></div></div></div>
-</div>
-
+    btn.addEventListener('click', function () {
+      set(btn.getAttribute('aria-pressed') !== 'true');
+    });
+  })();
+</script>
 </body>
 </html>
