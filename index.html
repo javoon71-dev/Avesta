@@ -46,15 +46,28 @@
   }
   header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   .brand {
-    font-weight: 900; font-size: 1.15rem; text-decoration: none;
-    display: inline-flex; align-items: center; gap: 10px;
+    width: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 2px; text-decoration: none; font-weight: 900; font-size: 1.15rem;
   }
   .brand img {
-    display: block; width: 68px; height: 28px; object-fit: contain;
+    display: block; width: 150px; height: 40px; object-fit: contain;
     filter: brightness(0) saturate(100%) invert(43%) sepia(64%) saturate(2490%) hue-rotate(231deg) brightness(101%) contrast(97%);
   }
+  .brand-tagline {
+    display: block; width: 150px; max-height: 1.2em; overflow: hidden;
+    color: #c4b5fd; font: 600 .64rem/1.2 Arial, sans-serif;
+    text-align: center; white-space: nowrap; letter-spacing: .035em;
+    opacity: 1; transform: translateY(0);
+    transition: opacity .25s ease, max-height .25s ease, transform .25s ease;
+  }
+  header.top { transition: padding .25s ease; }
+  header.top.scrolled { padding-block: 8px; }
+  header.top.scrolled .brand-tagline {
+    opacity: 0; max-height: 0; transform: translateY(-4px);
+  }
   @media (max-width: 560px) {
-    .brand img { width: 54px; height: 24px; }
+    header.top .wrap { gap: 8px; }
+    nav { gap: 10px; font-size: .82rem; }
   }
   nav { display: flex; gap: 22px; font-size: .95rem; }
   nav a { text-decoration: none; color: var(--muted); padding: 4px 2px; }
@@ -272,7 +285,7 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#" aria-label="چاپ و تبلیغات اوستا"><img src="logo.png" alt="" aria-hidden="true">چاپ و تبلیغات اوستا</a>
+    <a class="brand" href="#" aria-label="چاپ و تبلیغات اوستا"><img src="logo.png" alt="" aria-hidden="true"><span class="brand-tagline">Signs, Print &amp; Design</span></a>
     <nav aria-label="منوی اصلی">
       <a href="#services">خدمات</a>
       <a href="#process">مراحل کار</a>
@@ -424,6 +437,15 @@
         el.style.setProperty('--my', (e.clientY - r.top) + 'px');
       });
     });
+  })();
+
+  (function () {
+    var topbar = document.querySelector('header.top');
+    function updateHeader() {
+      topbar.classList.toggle('scrolled', window.scrollY > 24);
+    }
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
   })();
 </script>
 </body>
